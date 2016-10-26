@@ -28,31 +28,29 @@
   <button ion-button (click)="btnClickAnimated()" >Button show/Hide div animated</button>
 
 <div style="width: 182px; height:182px; border:1px solid #333333; position:relative">
-  <div (click)="pieceClicked(pieces[0])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:60px; left:0px;">
+  <div [@puzzlePieceTouched]="pieces[0].position" (click)="pieceClicked(pieces[0])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:60px; left:0px;">
     <img src="images/1.png"/>
   </div>
-  <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:0px; left:120px;">
+  <div [@puzzlePieceTouched]="pieces[1].position" (click)="pieceClicked(pieces[1])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:0px; left:120px;">
     <img src="images/2.png"/>
   </div>
-   <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:60px; left:120px;">
+   <div [@puzzlePieceTouched]="pieces[2].position" (click)="pieceClicked(pieces[2])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:60px; left:120px;">
     <img src="images/3.png"/>
   </div>
-   <div style="width: 60px; height:60px; margin:0px; padding:0px;position:absolute; top:0px; left:0px;">
+   <div [@puzzlePieceTouched]="pieces[3].position" (click)="pieceClicked(pieces[3])" style="width: 60px; height:60px; margin:0px; padding:0px;position:absolute; top:0px; left:0px;">
     <img src="images/4.png"/>
   </div>
-   <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:120px; left:0px;">
+   <div [@puzzlePieceTouched]="pieces[4].position" (click)="pieceClicked(pieces[4])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:120px; left:0px;">
     <img src="images/5.png"/>
   </div>
-   <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:0px; left:60px;">
+   <div [@puzzlePieceTouched]="pieces[5].position" (click)="pieceClicked(pieces[5])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:0px; left:60px;">
     <img src="images/6.png"/>
   </div>
-   <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:60px; left:60px;">
+   <div [@puzzlePieceTouched]="pieces[6].position" (click)="pieceClicked(pieces[6])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:60px; left:60px;">
     <img src="images/7.png"/>
   </div>
-  <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:120px; left:120px;">
+  <div [@puzzlePieceTouched]="pieces[7].position" (click)="pieceClicked(pieces[7])" style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:120px; left:120px;">
     <img src="images/8.png"/>
-  </div>
-  <div style="width: 60px; height:60px; margin:0px; padding:0px; position:absolute; top:120px; left:120px;">
   </div>
 </div>
 

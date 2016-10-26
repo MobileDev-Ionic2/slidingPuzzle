@@ -4,6 +4,7 @@ export class GamePiece
     {
         this.position = position;
         this.value = value;
+
     }
 
     position: string;

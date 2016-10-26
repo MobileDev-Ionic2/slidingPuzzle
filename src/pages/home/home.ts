@@ -15,14 +15,15 @@ import {GamePiece} from '../../models/gamePiece';
     ]),
     trigger('puzzlePieceTouched', [
       state("northwest", style({ top:0, left:0})), 
-      state("north", style({ top:0, left:0})),
-      state("northeast", style({ top:0, left:0})),
-      state("west", style({ top:0, left:0})),
-      state("center", style({ top:0, left:0})),
-      state("east", style({ top:0, left:0})),
-      state("southwest", style({ top:0, left:0})),
-      state("south", style({ top:0, left:0})),
-      state("southeast", style({ top:0, left:0})),
+      state("north", style({ top:0, left:60})),
+      state("northeast", style({ top:0, left:120})),
+      state("west", style({ top:60, left:0})),
+      state("center", style({ top:60, left:60})),
+      state("east", style({ top:60, left:120})),
+      state("southwest", style({ top:120, left:0})),
+      state("south", style({ top:120, left:60})),
+      state("southeast", style({ top:120, left:120})),
+      transition('* => *', animate('300ms')),
     ])
   ]
 })
@@ -32,10 +33,10 @@ export class HomePage {
     this.addPieces();
   }
   
-  visibility : string = 'shown';
+  @Input() visibility : string = 'shown';
   
   //@Input() animatedVisibility : boolean = true;
-  @Input() animatedVisibility : string = "shown";
+  animatedVisibility : string = "shown";
 
   btnClick() {
         this.visibility == "shown" ? this.visibility= "hidden" : this.visibility = "shown";
@@ -47,27 +48,36 @@ export class HomePage {
     console.log("animatedVisibility is now "+this.animatedVisibility);
   }
 
-  emptyField : string = "s";
+  emptyField : string = "south";
   pieces : Array<GamePiece> = [];
+
+  //@Input() pos8:string = "southeast";
 
   addPieces()
   {
     //var gp:GamePiece = new GamePiece(1, "w");
     //this.pieces.push(gp);
     
-    this.pieces.push(new GamePiece(1, "w"));
-    this.pieces.push(new GamePiece(2, "ne"));
-    this.pieces.push(new GamePiece(3, "e"));
-    this.pieces.push(new GamePiece(4, "nw"));
-    this.pieces.push(new GamePiece(5, "sw"));
-    this.pieces.push(new GamePiece(6, "n"));
-    this.pieces.push(new GamePiece(7, "c"));
-    this.pieces.push(new GamePiece(8, "se"));
+    this.pieces.push(new GamePiece(1, "west"));
+    this.pieces.push(new GamePiece(2, "northeast"));
+    this.pieces.push(new GamePiece(3, "east"));
+    this.pieces.push(new GamePiece(4, "northwest"));
+    this.pieces.push(new GamePiece(5, "southwest"));
+    this.pieces.push(new GamePiece(6, "north"));
+    this.pieces.push(new GamePiece(7, "center"));
+    this.pieces.push(new GamePiece(8, "southeast"));
   }
 
   pieceClicked(piece:GamePiece)
   {
-    console.log(piece.value + piece.position)
+    
+    var tmpPos : string = piece.position;
+    piece.position = this.emptyField;
+    this.emptyField = tmpPos;
+    //this.pos8 = "south"; // test works only for one
+
+    console.log("piece clicked: " +piece.value + " " + piece.position)
+    console.log("empty field: "+ this.emptyField);
   }
 }
 // a very good explanation of the new animation in angular2
